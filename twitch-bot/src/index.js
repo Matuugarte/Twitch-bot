@@ -5,11 +5,11 @@ const options = {
         debug: true
     },
     identity: {
-        username: "nativerules",
-        password: "oauth:3k958heqwusgn6bupp0k8rvvbzia52"
+        username: "your-channel-name",
+        password: "oauth:key-that-twitch-gives-you"
       },
       channels: [
-          "nativerules"
+          "your-channel-name"
       ]
 }
 
@@ -18,7 +18,7 @@ const client = new tmi.client(options)
 client.connect();
 
 client.on("connected", (address, port) => {
-    client.action("nativerules", `Hello gamers! Connected to ${address}:${port}`)
+    client.action("your-channel-name", `Hello gamers! Connected to ${address}:${port}`)
 })
 
 client.on("chat", (target, ctx, message, self) => {
@@ -34,7 +34,7 @@ client.on("chat", (target, ctx, message, self) => {
     }
 
     if (commandName === "!game") {
-        client.say(target, "Nat is playing Real Life")
+        client.say(target, "whatever-you-like is playing Real Life")
     }
 
     if (commandName === "!dice") {
